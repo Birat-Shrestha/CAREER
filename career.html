@@ -97,24 +97,24 @@
                                   </select>
                             </div>
                             <div class="box name">
-                                <i class="fas fa-user"></i><input type="text" placeholder="FULL NAME" required="required" size="20" onkeyup="if(this.value.length > 0) document.getElementById('start_button').disabled = false; else document.getElementById('start_button').disabled = true;"/>
+                                <i class="fas fa-user"></i><input type="text" id="name" placeholder="FULL NAME" size="20"/>
                             </div>
                             <div class="box phn">
-                                <i class="fas fa-mobile"></i><input type="text" placeholder="NUMBER" required="required" size="20" onkeyup="if(this.value.length > 0) document.getElementById('start_button').disabled = false; else document.getElementById('start_button').disabled = true;"/>
+                                <i class="fas fa-mobile"></i><input type="text" id="phone" placeholder="NUMBER" required="required" size="20"/>
                             </div>
                             <div class="box add">
-                                <i class="fas fa-map-marker-alt"></i><input type="text" placeholder="ADDRESS" required="required" size="20" onkeyup="if(this.value.length > 0) document.getElementById('start_button').disabled = false; else document.getElementById('start_button').disabled = true;"/>
+                                <i class="fas fa-map-marker-alt"></i><input type="text" id="address" placeholder="ADDRESS" required="required" size="20"/>
                             </div>
                             <div class="box dob">
-                                <i class="fas fa-calendar-alt"></i><input type="date" class="floatLabel" required="required" size="20" onkeyup="if(this.value.length > 0) document.getElementById('start_button').disabled = false; else document.getElementById('start_button').disabled = true;"/><label for="date">D.O.B</label>
+                                <i class="fas fa-calendar-alt"></i><input type="date" id="dob" class="floatLabel" required="required" size="20"/><label for="date">D.O.B</label>
                             </div>
                             <div class="box upload">
-                                <i class="fas fa-file-image"></i><input type="file"  class="file" accept="image/*" buttonText="Select a File" required="required" onkeyup="if(this.files.length === 0) document.getElementById('start_button').disabled = true; else document.getElementById('start_button').disabled = false;"/>
+                                <i class="fas fa-file-image"></i><input type="file" name="filename" id="filename"  class="file" accept="image/*" buttonText="Select a File" required="required"/>
                             </div>
                             <div class="recaptha">
                             </div>
                             <div class="submit-button">
-                                <button class = "bn" value="Click to begin!" id="start_button" disabled>Submit</button>
+                                <button type="submit" class = "bn" name="start_button" value="start_button" id="start_button" disabled>Submit</button>
                             </div>
                         </form>
                         <div class="join">
@@ -164,6 +164,30 @@
                 },8000);
             });
         });
+    </script>
+    <script >
+         $(document).ready(function () {
+$("#filename").on('change',function(event){
+ 		filename=$(this).val();
+    if(filename!==''){
+    $("#start_button").attr('disabled',false);
+    }
+})
+})
+    </script>
+    <script type="text/javascript">
+
+
+        function btnActivation(){
+
+            if(!document.getElementById('name').value.length){
+                document.getElementById("start_button").disabled = true;            
+            }else{
+                document.getElementById("start_button").disabled = false;
+
+            }           
+        }   
+
     </script>
     <script>
         (function($){
